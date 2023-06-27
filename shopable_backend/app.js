@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
-// const userRouter = require('./routes/userRoutes');
+const authRouter = require('./routes/auth');
 // const dsrRouter = require('./routes/dsrRoutes');
 
 const app = express();
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// app.use('/api/v1/users', userRouter);
+app.use('/api/v1/auth', authRouter);
 // app.use('/api/v1/dsr', dsrRouter);
 
 app.all('*', (req, res, next) => {
