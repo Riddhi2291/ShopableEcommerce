@@ -3,9 +3,7 @@ const firebaseAdmin =  require("../services/firebase.js");
 exports.authCheck = async(req, res, next) => {
   try {
     const firebaseToken = req.headers.authorization?.split(" ")[1];
-
-    console.log('firebaseToken......', firebaseToken)
-    
+console.log('firebaseToken......', firebaseToken)
     let firebaseUser;
     if (firebaseToken) {
       firebaseUser = await firebaseAdmin.auth().verifyIdToken(firebaseToken);
